@@ -1,0 +1,13 @@
+input_file: "data.csv"
+
+output_type: "redis"
+
+kafka:
+  brokers: ["localhost:9092"]
+  topic: "my-data-topic"
+
+redis:
+  address: "localhost:6379"
+  password: ""
+  db: 0
+  list_key: "my-data-list"
