@@ -38,7 +38,6 @@ func LoadConfig(path string) (*Config, error) {
 		return nil, fmt.Errorf("error parsing config file: %w", err)
 	}
 
-	// Додати валідацію значень конфігурації тут, якщо потрібно
 	if cfg.InputFile == "" {
 		return nil, fmt.Errorf("field 'input_file' required in config")
 	}

@@ -20,13 +20,13 @@ func CreateOutputStrategy(cfg *config.Config) (OutputStrategy, error) {
 		if len(cfg.Kafka.Brokers) == 0 || cfg.Kafka.Topic == "" {
 			return nil, fmt.Errorf("for type 'kafka' required fields 'kafka.brokers' and 'kafka.topic'")
 		}
-		return NewKafkaOutputStrategy(), nil
+		return NewKafkaOutputStrategy(cfg.Kafka)
 	case "redis":
 		fmt.Println("Використовується стратегія: Redis")
 		if cfg.Redis.Address == "" || cfg.Redis.ListKey == "" {
 			return nil, fmt.Errorf("for type 'redis' required fields 'redis.address' and 'redis.list_key'")
 		}
-		return NewRedisOutputStrategy(), nil
+		return NewRedisOutputStrategy(cfg.Redis)
 	default:
 		return nil, fmt.Errorf("unknown output type: %s", cfg.OutputType)
 	}

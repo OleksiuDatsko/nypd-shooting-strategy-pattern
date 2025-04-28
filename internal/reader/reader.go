@@ -14,6 +14,7 @@ func ReadCSVData(filePath string) ([][]string, error) {
 	defer file.Close()
 
 	reader := csv.NewReader(file)
+	reader.Read()
 
 	records, err := reader.ReadAll()
 	if err != nil {
@@ -21,5 +22,6 @@ func ReadCSVData(filePath string) ([][]string, error) {
 	}
 
 	fmt.Printf("Успішно прочитано %d записів з файлу %s\n", len(records), filePath)
+	fmt.Println(records[0])
 	return records, nil
 }

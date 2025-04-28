@@ -3,7 +3,7 @@ input_file: "data.csv"
 output_type: "redis"
 
 kafka:
-  brokers: ["localhost:9092"]
+  brokers: ["localhost:29092"]
   topic: "my-data-topic"
 
 redis:
